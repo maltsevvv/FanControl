@@ -15,8 +15,8 @@ def get_temp():
 	temp = float(findall('\d+\.\d+', temp)[0])
 	return(temp)
 try:
-	tempOn = 72             # Temp Cooler On
-	tempOff = 45		# Temp Cooler Off
+	tempOn = 65             # Temp Cooler On
+	tempOff = 50		# Temp Cooler Off
 	controlPin = 14         # Control Pin Number
 	latencyTime = 10	# Time in sec between temperature measuring 
 	pinState = False
