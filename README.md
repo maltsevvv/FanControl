@@ -5,10 +5,10 @@ Raspberry Pi FanControl Service
 
 #### Instruction how to install Fan Control python application as executable service for Raspberry Pi with OSMC
 
-1. Download program and place it into /opt folder
+1. Download program and place it into /usr/local/bin folder
 ```
-sudo wget -P /opt https://raw.githubusercontent.com/vgooz/FanControl/master/fancontrol.py
-sudo chmod 774 /opt/fancontrol.py
+sudo wget -P /usr/local/bin https://raw.githubusercontent.com/maltsevvv/FanControl/master/fancontrol.py
+sudo chmod +x /usr/local/bin/fancontrol.py
 ```
 2. Update Python setuptools
 
@@ -36,8 +36,8 @@ After=meadiacenter.service
 User=root
 Group=root
 Type=simple
-ExecStart=/usr/bin/python /opt/fancontrol.py
-ExecStop=/usr/bin/pkill -f /opt/fancontrol.py
+ExecStart=/usr/bin/python /usr/local/bin/fancontrol.py
+ExecStop=/usr/bin/pkill -f /usr/local/binfancontrol.py
 Restart=always
 [Install]
 WantedBy=multi-user.target
