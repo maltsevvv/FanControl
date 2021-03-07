@@ -1,3 +1,9 @@
+![prototype scheme](https://raw.githubusercontent.com/maltsevvv/FanControl/master/fan.png)
+
+1. Transistor 2N2222
+2. Resistor 680 Om
+
+
 # FanControl
 Raspberry Pi FanControl Service
 
