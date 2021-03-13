@@ -11,10 +11,12 @@ Fan Off = 55 temp
 Raspberry Pi FanControl Service
 
 1. Download program and place it into /usr/local/bin folder
+
 `sudo wget -P /usr/local/bin https://raw.githubusercontent.com/maltsevvv/FanControl/master/fancontrol.py`
 
 `sudo chmod +x /usr/local/bin/fancontrol.py`
 2. Update Python setuptools
+
 `sudo apt-get install python-pip`
 
 `sudo pip install --upgrade setuptools`
