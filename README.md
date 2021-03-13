@@ -15,6 +15,7 @@ Raspberry Pi FanControl Service
 `sudo wget -P /usr/local/bin https://raw.githubusercontent.com/maltsevvv/FanControl/master/fancontrol.py`
 
 `sudo chmod +x /usr/local/bin/fancontrol.py`
+
 2. Update Python setuptools
 
 `sudo apt-get install python-pip`
