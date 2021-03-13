@@ -3,47 +3,33 @@
 1. Transistor 2N2222
 2. Resistor 680 Om
 
+GPIO 14
+Fan ON = 65 temp
+Fan Off = 55 temp
 
-# FanControl
+# Fan Control
 Raspberry Pi FanControl Service
 
-#### Enables fan/cooler that pluged in Raspberry Pi when CPU is too hot and disables it when CPU got cold.
-
-#### Instruction how to install Fan Control python application as executable service for Raspberry Pi with OSMC
-
 1. Download program and place it into /usr/local/bin folder
-```
-sudo wget -P /usr/local/bin https://raw.githubusercontent.com/maltsevvv/FanControl/master/fancontrol.py
-sudo chmod +x /usr/local/bin/fancontrol.py
-```
-2. Update Python setuptools
+`sudo wget -P /usr/local/bin https://raw.githubusercontent.com/maltsevvv/FanControl/master/fancontrol.py`
 
+`sudo chmod +x /usr/local/bin/fancontrol.py`
+2. Update Python setuptools
 `sudo apt-get install python-pip`
 
 `sudo pip install --upgrade setuptools`
 
-3. Install GPIO python library for Python 2.7
-```
-sudo apt-get install build-essential
-sudo pip install wheel
-sudo apt-get install python-dev
-sudo pip install rpi.gpio
-```
-4. Create fancontrol.service file with following text below
+3. Create fancontrol.service file with following text below
 
 `sudo nano /etc/systemd/system/fancontrol.service`
 
 ```
 [Unit]
 Description=run fan when hot
-After=meadiacenter.service
 [Service]
-#If User and Group are not specified, then by default systemd ExecStart runs as root
-User=root
-Group=root
 Type=simple
 ExecStart=/usr/bin/python /usr/local/bin/fancontrol.py
-ExecStop=/usr/bin/pkill -f /usr/local/binfancontrol.py
+ExecStop=/usr/bin/pkill -f /usr/local/bin/fancontrol.py
 Restart=always
 [Install]
 WantedBy=multi-user.target
@@ -54,11 +40,3 @@ sudo systemctl enable fancontrol
 sudo systemctl start fancontrol
 sudo systemctl status fancontrol
 ```
-6. Use sysbench for CPU hiting
-```
-sudo apt-get install sysbench
-sysbench --num-threads=4 --test=cpu --cpu-max-prime=200000 --validate run
-```
-7. Keep script runing after logout in the terminal
-
-`nohup python fancontrol.py &`
